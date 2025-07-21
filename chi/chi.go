@@ -8,10 +8,10 @@ import (
 	"net/http"
 	"net/http/httptest"
 
-	apt "github.com/apitoolkit/apitoolkit-go"
 	"github.com/go-chi/chi/v5"
 	"github.com/google/uuid"
 	"github.com/honeycombio/otel-config-go/otelconfig"
+	apt "github.com/monoscope/monoscope-go"
 	"go.opentelemetry.io/otel"
 )
 

@@ -1,4 +1,4 @@
-module github.com/apitoolkit/apitoolkit-go
+module github.com/monoscope/monoscope-go
 
 go 1.22.3
 
