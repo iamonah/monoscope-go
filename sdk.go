@@ -1,4 +1,4 @@
-package apitoolkit
+package monoscope
 
 import (
 	"encoding/base64"

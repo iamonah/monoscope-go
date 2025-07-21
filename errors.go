@@ -1,4 +1,4 @@
-package apitoolkit
+package monoscope
 
 import (
 	"context"
