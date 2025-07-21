@@ -1,4 +1,4 @@
-package apitoolkitchi
+package monoscopechi
 
 import (
 	"bytes"
