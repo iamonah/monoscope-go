@@ -1,4 +1,4 @@
-package apitoolkitgorilla
+package monoscopegorilla
 
 import (
 	"bytes"
@@ -7,10 +7,10 @@ import (
 	"net/http"
 	"net/http/httptest"
 
-	apt "github.com/apitoolkit/apitoolkit-go"
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
 	"github.com/honeycombio/otel-config-go/otelconfig"
+	apt "github.com/monoscope/monoscope-go"
 	"go.opentelemetry.io/otel"
 )
 
