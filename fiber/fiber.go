@@ -1,4 +1,4 @@
-package apitoolkitfiber
+package monoscopefiber
 
 import (
 	"context"

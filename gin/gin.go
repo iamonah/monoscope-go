@@ -1,4 +1,4 @@
-package apitoolkitgin
+package monoscopegin
 
 import (
 	"bytes"
@@ -8,10 +8,10 @@ import (
 	"log"
 	"net/http"
 
-	apt "github.com/apitoolkit/apitoolkit-go"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/honeycombio/otel-config-go/otelconfig"
+	apt "github.com/monoscope/monoscope-go"
 	"go.opentelemetry.io/otel"
 )
 
