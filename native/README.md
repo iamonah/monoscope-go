@@ -5,7 +5,7 @@
 
 ## Golang Native SDK
 
-[![Monoscope SDK](https://img.shields.io/badge/Monoscope-SDK-0068ff?logo=go)](https://github.com/topics/apitoolkit-sdk) [![Join Discord Server](https://img.shields.io/badge/Chat-Discord-7289da)](https://apitoolkit.io/discord?utm_campaign=devrel&utm_medium=github&utm_source=sdks_readme) [![Monoscope Docs](https://img.shields.io/badge/Read-Docs-0068ff)](https://apitoolkit.io/docs/sdks/golang?utm_campaign=devrel&utm_medium=github&utm_source=sdks_readme) [![GoDoc](https://godoc.org/github.com/monoscope/monoscope-go?status.svg)](https://godoc.org/github.com/monoscope/monoscope-go/main/tree/native)
+[![Monoscope SDK](https://img.shields.io/badge/Monoscope-SDK-0068ff?logo=go)](https://github.com/topics/monoscope-sdk) [![Join Discord Server](https://img.shields.io/badge/Chat-Discord-7289da)](https://apitoolkit.io/discord?utm_campaign=devrel&utm_medium=github&utm_source=sdks_readme) [![Monoscope Docs](https://img.shields.io/badge/Read-Docs-0068ff)](https://apitoolkit.io/docs/sdks/golang?utm_campaign=devrel&utm_medium=github&utm_source=sdks_readme) [![GoDoc](https://godoc.org/github.com/monoscope/monoscope-go?status.svg)](https://godoc.org/github.com/monoscope/monoscope-go/main/tree/native)
 
 Monoscope is an end-to-end API and web services management toolkit for engineers and customer support teams. To integrate your Golang application with Monoscope, you need to use this SDK to monitor incoming traffic, aggregate the requests, and then deliver them to the Monoscope's servers.
 
@@ -35,8 +35,8 @@ go get github.com/monoscope/monoscope-go/native
 Next, set up your envrironment variables
 
 ```sh
-OTEL_RESOURCE_ATTRIBUTES=at-project-key=<YOUR_API_KEY> # Your apitoolkit API key
-OTEL_SERVICE_NAME="apitoolkit-otel-go-demo" # Service name for your the service you're integrating in
+OTEL_RESOURCE_ATTRIBUTES=at-project-key=<YOUR_API_KEY> # Your monoscope API key
+OTEL_SERVICE_NAME="monoscope-otel-go-demo" # Service name for your the service you're integrating in
 OTEL_SERVICE_VERSION="0.0.1" # Your application's service version
 ```
 
@@ -48,12 +48,12 @@ package main
 import (
 	"log"
 
-	apitoolkit "github.com/monoscope/monoscope-go/native"
+	monoscope "github.com/monoscope/monoscope-go/native"
   _ "github.com/joho/godotenv/autoload"
 )
 
 func main() {
-	shutdown, err := apitoolkit.ConfigureOpenTelemetry()
+	shutdown, err := monoscope.ConfigureOpenTelemetry()
 	if err != nil {
 		log.Printf("error configuring openTelemetry: %v", err)
 	}
@@ -63,7 +63,7 @@ func main() {
 		w.Write([]byte("Hello, World!"))
 	})
 
-	nativeMiddleware := apitoolkit.Middleware(apitoolkit.Config{
+	nativeMiddleware := monoscope.Middleware(monoscope.Config{
 		Debug:               false,
 		ServiceName:         "example-chi-server",
 		ServiceVersion:      "0.0.1",
