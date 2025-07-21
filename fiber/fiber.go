@@ -5,10 +5,10 @@ import (
 	"errors"
 	"net/http"
 
-	apt "github.com/apitoolkit/apitoolkit-go"
 	fiber "github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
 	"github.com/honeycombio/otel-config-go/otelconfig"
+	apt "github.com/monoscope/monoscope-go"
 	"go.opentelemetry.io/otel"
 )
 
