@@ -28,7 +28,7 @@ var (
 	ErrorListCtxKey         = ctxKey("error-list")
 	CurrentRequestMessageID = ctxKey("current-req-msg-id")
 	CurrentSpan             = ctxKey("current=apitoolkit-client")
-	SpanName                = ctxKey("apitoolkit-http-span")
+	SpanName                = ctxKey("monoscope.http")
 )
 
 // Payload represents request and response details

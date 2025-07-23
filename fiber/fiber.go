@@ -10,6 +10,7 @@ import (
 	"github.com/honeycombio/otel-config-go/otelconfig"
 	apt "github.com/monoscope-tech/monoscope-go"
 	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/trace"
 )
 
 type Config struct {
@@ -42,7 +43,7 @@ func Middleware(config Config) fiber.Handler {
 	return func(ctx *fiber.Ctx) error {
 		baseCtx := ctx.UserContext()
 		tracer := otel.GetTracerProvider().Tracer(config.ServiceName)
-		newCtx, span := tracer.Start(baseCtx, "apitoolkit-http-span")
+		newCtx, span := tracer.Start(baseCtx, "monoscope.http", trace.WithSpanKind(trace.SpanKindServer))
 
 		msgID := uuid.Must(uuid.NewRandom())
 		ctx.Locals(string(apt.CurrentRequestMessageID), msgID)

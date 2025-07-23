@@ -14,6 +14,7 @@ import (
 	"github.com/labstack/echo/v4"
 	apt "github.com/monoscope-tech/monoscope-go"
 	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/trace"
 )
 
 // bodyDumpResponseWriter use to preserve the http response body during request processing
@@ -59,7 +60,7 @@ func Middleware(config Config) echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(ctx echo.Context) (err error) {
 			tracer := otel.GetTracerProvider().Tracer(config.ServiceName)
-			newCtx, span := tracer.Start(ctx.Request().Context(), "apitoolkit-http-span")
+			newCtx, span := tracer.Start(ctx.Request().Context(), "monoscope.http", trace.WithSpanKind(trace.SpanKindServer))
 
 			msgID := uuid.Must(uuid.NewRandom())
 			ctx.Set(string(apt.CurrentRequestMessageID), msgID)
